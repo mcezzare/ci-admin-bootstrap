@@ -10,6 +10,31 @@ SbAdmin Home -> http://startbootstrap.com/template-overviews/sb-admin-2/
 
 Just checkout , and create your own files
 
+To access other urls , 2 things  must be ok.
+Rewrite Module if use apache2 and apache user must access .htaccess files , to all routes must pass per index.php on /
+
+
+
+```
+#!bash
+
+root@developer:/etc/apache2# **a2enmod rewrite**
+Enabling module rewrite.
+To activate the new configuration, you need to run:
+  service apache2 restart
+
+
+```
+
+and the conf on vhost file:
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride All
+	</Directory>
+
+OBS: This conf is to start access all files,
+Hardening configurations must be done later.
+
 ### Contribution guidelines ###
 
 
